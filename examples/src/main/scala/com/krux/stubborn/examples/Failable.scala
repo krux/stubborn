@@ -1,6 +1,9 @@
 package com.krux.stubborn.examples
 
 
+/**
+ * Functions that fails a few times before it can succeed
+ */
 object Failable {
 
   var currentAttempt = 0
