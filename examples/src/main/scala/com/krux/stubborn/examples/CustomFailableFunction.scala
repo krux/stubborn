@@ -3,7 +3,17 @@ package com.krux.stubborn.examples
 import com.krux.stubborn.Retryable
 import com.krux.stubborn.policy.ExponentialBackoffAndJitter
 
-object FailableFunction extends Retryable with ExponentialBackoffAndJitter {
+object CustomFailableFunction extends Retryable with ExponentialBackoffAndJitter {
+
+  override def maxRetry = 5
+
+  override def base = 100
+
+  override def cap = 10000
+
+  override def shouldRetry() = {
+    case e: RuntimeException => e
+  }
 
   def apply() = Failable.failBeforeSuccess(3).retry()
 

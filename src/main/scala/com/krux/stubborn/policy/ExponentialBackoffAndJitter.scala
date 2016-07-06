@@ -9,9 +9,9 @@ import scala.util.Random
  */
 trait ExponentialBackoffAndJitter extends Policy {
 
-  def base: Int
+  def base: Int = 3000
 
-  def cap: Int
+  def cap: Int = 60000
 
   def retryDelay(attempt: Int): Int = Random.nextInt(
     Math.min(

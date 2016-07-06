@@ -10,9 +10,11 @@ trait Retryable { this: Policy =>
 
   def logger: Logger = LoggerFactory.getLogger(getClass)
 
-  def maxRetry: Int
+  def maxRetry: Int = 3
 
-  def shouldRetry(): PartialFunction[Throwable, Throwable]
+  def shouldRetry(): PartialFunction[Throwable, Throwable] = {
+    case e: RuntimeException => e
+  }
 
   implicit class RetryableImpl[A](action: => A) {
 
