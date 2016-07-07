@@ -42,6 +42,7 @@ lazy val publishSettings = Seq(
        </developer>
     </developers>
   )
+)
 
 lazy val commonSettings = Seq(
   scalacOptions ++= Seq("-deprecation", "-feature", "-Xlint", "-Xfatal-warnings"),
