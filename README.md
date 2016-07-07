@@ -1,5 +1,7 @@
 # Stubborn
 
+[![Build Status](https://travis-ci.org/krux/stubborn.svg?branch=master)](http://travis-ci.org/krux/stubborn)
+
 > Stubborn: having or showing dogged determination not to change one's attitude
 > or position on something.
 
