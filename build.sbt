@@ -44,6 +44,12 @@ lazy val publishSettings = Seq(
   )
 )
 
+lazy val noPublishSettings = Seq(
+  publishArtifact := false,
+  publish := (),
+  publishLocal := ()
+)
+
 lazy val commonSettings = Seq(
   scalacOptions ++= Seq("-deprecation", "-feature", "-Xlint", "-Xfatal-warnings"),
   version := "1.0.0",
@@ -66,6 +72,7 @@ lazy val root = (project in file(".")).
 
 lazy val examples = (project in file("examples")).
   settings(commonSettings: _*).
+  settings(noPublishSettings: _*).
   settings(
     name := "stubborn-examples",
     libraryDependencies += slf4jSimpleArtifact
