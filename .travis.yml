@@ -26,15 +26,15 @@ notifications:
 before_install:
 - |
   if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_PULL_REQUEST}" = "false" ]]; then
-    openssl aes-256-cbc -K $encrypted_d039d4b3556d_key -iv $encrypted_d039d4b3556d_iv -in secring.gpg.enc -out secring.gpg -d
     openssl aes-256-cbc -K $encrypted_d039d4b3556d_key -iv $encrypted_d039d4b3556d_iv -in pubring.gpg.enc -out pubring.gpg -d
+    openssl aes-256-cbc -K $encrypted_d039d4b3556d_key -iv $encrypted_d039d4b3556d_iv -in secring.gpg.enc -out secring.gpg -d
   fi
 
 after_success:
 - |
   if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_PULL_REQUEST}" = "false" ]]; then
     sbt 'set pgpPassphrase := Some(System.getenv("PGP_PASSPHRASE").toCharArray)' 'set credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", System.getenv("SONATYPE_USERNAME"), System.getenv("SONATYPE_PASSWORD"))' +publishSigned sonatypeReleaseAll
-    rm -f secring.asc pubring.asc
+    rm -f secring.gpg pubring.gpg
   fi
 
 env:

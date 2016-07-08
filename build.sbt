@@ -9,8 +9,8 @@ lazy val publishSettings = Seq(
   sonatypeProfileName := "com.krux",
   publishMavenStyle := true,
   pomIncludeRepository := { _ => false },
-  pgpSecretRing := file("secring.asc"),
-  pgpPublicRing := file("pubring.asc"),
+  pgpSecretRing := file("secring.gpg"),
+  pgpPublicRing := file("pubring.gpg"),
   publishTo := {
     if (isSnapshot.value)
       Some("snapshots" at "https://oss.sonatype.org/content/repositories/snapshots")
