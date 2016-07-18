@@ -1,9 +1,8 @@
 package com.krux.stubborn
 
-import org.slf4j.LoggerFactory
-import org.slf4j.Logger
+import org.slf4j.{LoggerFactory, Logger}
 
-import com.krux.stubborn.policy.{ Policy, ExponentialBackoffAndJitter }
+import com.krux.stubborn.policy.Policy
 
 
 trait Retryable { policy: Policy =>
@@ -16,23 +15,17 @@ trait Retryable { policy: Policy =>
 
   implicit class RetryableImpl[A](action: => A) {
 
-    def retry(): A = Retryable.retry(maxRetry, policy, shouldRetry, logger)(action)
+    def retry(): A = Retryable.retry(maxRetry, policy, shouldRetry, logger, 0)(action)
 
   }
 
 }
 
-object Retryable {
-
-  def defaultLogger: Logger = LoggerFactory.getLogger(getClass)
-
-  val defaultMaxRetry = 3
+object Retryable extends RetryDefaults {
 
   def defaultShouldRetry(): PartialFunction[Throwable, Throwable] = {
     case e: RuntimeException => e
   }
-
-  def defaultPolicy: Policy = new ExponentialBackoffAndJitter{}
 
   def retry[A](
       maxRetry: Int = defaultMaxRetry,
@@ -48,7 +41,7 @@ object Retryable {
       } catch {
         shouldRetry.andThen { e =>
           val delay = policy.retryDelay(currentAttempt)
-          logger.info(s"caught exception: ${e.getMessage}\n Retry (Attempt ${currentAttempt}) after $delay milliseconds...")
+          logger.info(s"Caught exception: ${e.getMessage}\n Retry (Attempt ${currentAttempt}) after $delay milliseconds...")
           Thread.sleep(delay)
           retry(maxRetry, policy, shouldRetry, logger, currentAttempt + 1)(action)
         }
