@@ -9,21 +9,16 @@ import scala.util.Random
  */
 trait ExponentialBackoffAndJitter extends ExponentialBackoff with Policy {
 
-  override def base: Int = ExponentialBackoffAndJitter.defaultBase
-
-  override def cap: Int = ExponentialBackoffAndJitter.defaultCap
-
   override def retryDelay(attempt: Int): Int = Random.nextInt(super.retryDelay(attempt))
 
 }
 
 object ExponentialBackoffAndJitter {
 
-  val defaultBase: Int = 3000
-
-  val defaultCap: Int = 60000
-
-  def apply(baseValue: Int = defaultBase, capValue: Int = defaultCap) = new ExponentialBackoffAndJitter {
+  def apply(
+    baseValue: Int = ExponentialBackoff.defaultBase,
+    capValue: Int = ExponentialBackoff.defaultCap
+  ) = new ExponentialBackoffAndJitter {
     override def base = baseValue
     override def cap = capValue
   }
