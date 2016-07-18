@@ -3,9 +3,9 @@ package com.krux.stubborn.policy
 
 trait ExponentialBackoff extends Policy {
 
-  def base: Int = ExponentialBackoffAndJitter.defaultBase
+  def base: Int = ExponentialBackoff.defaultBase
 
-  def cap: Int = ExponentialBackoffAndJitter.defaultCap
+  def cap: Int = ExponentialBackoff.defaultCap
 
   def retryDelay(attempt: Int): Int = Math.min(
     cap,
