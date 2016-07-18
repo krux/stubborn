@@ -17,4 +17,13 @@ object Failable {
     }
   }
 
+  def leftBeforeRight(failAttempts: Int): Either[String, String] = {
+    if (currentAttempt < failAttempts) {
+      currentAttempt += 1
+      Left("failed")
+    } else {
+      Right("success")
+    }
+  }
+
 }
