@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/krux/stubborn.png?label=ready&title=Ready)](https://waffle.io/krux/stubborn)
 # Stubborn
 
 [![Build Status](https://travis-ci.org/krux/stubborn.svg?branch=master)](http://travis-ci.org/krux/stubborn)
