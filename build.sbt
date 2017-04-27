@@ -52,7 +52,7 @@ lazy val noPublishSettings = Seq(
 
 lazy val commonSettings = Seq(
   scalacOptions ++= Seq("-deprecation", "-feature", "-Xlint", "-Xfatal-warnings"),
-  version := "1.1.0",
+  version := "1.2.0",
   scalaVersion := scala210Version,
   crossScalaVersions := Seq(
     scala210Version,
