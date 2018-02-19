@@ -1,5 +1,5 @@
-val scala210Version = "2.10.6"
-val scala211Version = "2.11.8"
+val scala210Version = "2.10.7"
+val scala211Version = "2.11.12"
 
 val scalaTestArtifact      = "org.scalatest"    %% "scalatest"    % "2.2.4"       % "test"
 val slf4jApiArtifact       = "org.slf4j"        %  "slf4j-api"    % "1.7.12"
@@ -17,42 +17,29 @@ lazy val publishSettings = Seq(
     else
       Some("releases" at "https://oss.sonatype.org/service/local/staging/deploy/maven2")
   },
-  pomExtra := (
-    <url>https://github.com/krux/stubborn</url>
-    <scm>
-       <url>git@github.com:krux/stubborn.git</url>
-       <connection>scm:git:git@github.com:krux/stubborn.git</connection>
-    </scm>
-    <licenses>
-      <license>
-        <name>Apache-2.0</name>
-        <url>http://opensource.org/licenses/Apache-2.0</url>
-      </license>
-    </licenses>
-    <developers>
-       <developer>
-         <id>realstraw</id>
-         <name>Kexin Xie</name>
-         <url>http://github.com/realstraw</url>
-       </developer>
-       <developer>
-         <id>sethyates</id>
-         <name>Seth Yates</name>
-         <url>http://github.com/sethyates</url>
-       </developer>
-    </developers>
+  licenses := Seq("Apache-2.0" -> url("http://opensource.org/licenses/Apache-2.0")),
+  homepage := Some(url("https://github.com/krux/stubborn")),
+  scmInfo := Some(
+    ScmInfo(
+      url("https://github.com/krux/stubborn"),
+      "scm:git:git@github.com:krux/stubborn.git"
+    )
+  ),
+  developers := List(
+    Developer(id = "realstraw", name = "Kexin Xie", email = "kexin.xie@salesforce.com", url = url("http://github.com/realstraw")),
+    Developer(id = "sethyates", name = "Seth Yates", email = "syates@salesforce.com", url = url("http://github.com/sethyates"))
   )
 )
 
 lazy val noPublishSettings = Seq(
   publishArtifact := false,
-  publish := (),
-  publishLocal := ()
+  publish := {},
+  publishLocal := {},
+  publishTo := None
 )
 
 lazy val commonSettings = Seq(
   scalacOptions ++= Seq("-deprecation", "-feature", "-Xlint", "-Xfatal-warnings"),
-  version := "1.2.0",
   scalaVersion := scala210Version,
   crossScalaVersions := Seq(
     scala210Version,
