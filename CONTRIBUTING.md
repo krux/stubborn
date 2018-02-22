@@ -67,7 +67,7 @@ a ticket number.
 
 ## Submitting Changes
 
-* Sign the [Contributor License Agreement](CLA.md).
+* Sign the [Contributor License Agreement](CLA).
 * Push your changes to a topic branch in your fork of the repository.
 * Submit a pull request to the repository in the krux organization.
 * Update your Ticket to mark that you have submitted code and are ready for 
@@ -79,6 +79,6 @@ a ticket number.
 
 # Additional Resources
 
-* [Contributor License Agreement](CLA.md)
+* [Contributor License Agreement](CLA)
 * [General GitHub documentation](http://help.github.com/)
 * [GitHub pull request documentation](http://help.github.com/send-pull-requests/)
