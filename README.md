@@ -21,7 +21,7 @@ Add stubborn as a dependency in your `build.sbt` or `Build.scala` as appropriate
 ```scala
 libraryDependencies ++= Seq(
   // Other dependencies ...
-  "com.krux" %% "stubborn" % "[1.2.1,2)"
+  "com.krux" %% "stubborn" % "1.3.0"
 )
 ```
 

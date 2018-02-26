@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.3.0 - 2018-02-26
+### Changed
+- [#16](https://github.com/krux/stubborn/issues/16) Support for Scala 2.12
+
 ## 1.2.1 - 2018-02-18
 ### Changed
 - [#11](https://github.com/krux/stubborn/issues/11) Update build settings and sbt versions
