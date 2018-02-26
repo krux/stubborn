@@ -16,6 +16,7 @@ lazy val publishSettings = Seq(
   },
   licenses := Seq("Apache-2.0" -> url("http://opensource.org/licenses/Apache-2.0")),
   homepage := Some(url("https://github.com/krux/stubborn")),
+  scalaVersion := scala.util.Properties.versionNumberString,
   scmInfo := Some(
     ScmInfo(
       url("https://github.com/krux/stubborn"),
