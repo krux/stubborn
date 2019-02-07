@@ -1,6 +1,8 @@
+val slf4jVersion = "1.7.25"
+
 val scalaTestArtifact      = "org.scalatest"    %% "scalatest"    % "3.0.4"       % Test
-val slf4jApiArtifact       = "org.slf4j"        %  "slf4j-api"    % "1.7.12"
-val slf4jSimpleArtifact    = "org.slf4j"        %  "slf4j-simple" % "1.7.12"
+val slf4jApiArtifact       = "org.slf4j"        %  "slf4j-api"    % slf4jVersion
+val slf4jSimpleArtifact    = "org.slf4j"        %  "slf4j-simple" % slf4jVersion
 
 lazy val publishSettings = Seq(
   sonatypeProfileName := "com.krux",
