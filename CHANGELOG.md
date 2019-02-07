@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.3.1 - 2019-02-07
+### Changed
+- [#17](https://github.com/krux/stubborn/issues/17) Update slf4j to 1.7.25
+
 ## 1.3.0 - 2018-02-26
 ### Changed
 - [#16](https://github.com/krux/stubborn/issues/16) Support for Scala 2.12
