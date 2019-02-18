@@ -13,7 +13,7 @@ matrix:
     - scala: 2.12.4
       jdk: openjdk8
     - scala: 2.11.12
-      jdk: openjdk7
+      jdk: openjdk8
 
 sbt_args: "-no-colors -J-Xss2m"
 
