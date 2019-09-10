@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.4.1 - 2019-09-09
+### Changed
+- Update build to use sbt 1.13 and Scala 2.12.9
+
 ## 1.4.0 - 2019-02-17
 ### Changed
 - Fixes build by remove jdk7 and scala 2.10
