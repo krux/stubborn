@@ -1,6 +1,6 @@
-val slf4jVersion = "1.7.25"
+val slf4jVersion = "1.7.+"
 
-val scalaTestArtifact      = "org.scalatest"    %% "scalatest"    % "3.0.4"       % Test
+val scalaTestArtifact      = "org.scalatest"    %% "scalatest"    % "3.2.0"       % Test
 val slf4jApiArtifact       = "org.slf4j"        %  "slf4j-api"    % slf4jVersion
 val slf4jSimpleArtifact    = "org.slf4j"        %  "slf4j-simple" % slf4jVersion
 
