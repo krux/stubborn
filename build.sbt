@@ -1,6 +1,9 @@
+val scala212Version = "2.12.12"
+val scala213Version = "2.13.3"
+
 val slf4jVersion = "1.7.+"
 
-val scalaTestArtifact      = "org.scalatest"    %% "scalatest"    % "3.2.0"       % Test
+val scalaTestArtifact      = "org.scalatest"    %% "scalatest"    % "3.2.2"       % Test
 val slf4jApiArtifact       = "org.slf4j"        %  "slf4j-api"    % slf4jVersion
 val slf4jSimpleArtifact    = "org.slf4j"        %  "slf4j-simple" % slf4jVersion
 
@@ -39,6 +42,8 @@ lazy val noPublishSettings = Seq(
 
 lazy val commonSettings = Seq(
   scalacOptions ++= Seq("-deprecation", "-feature", "-Xlint", "-Xfatal-warnings"),
+  scalaVersion := scala212Version,
+  crossScalaVersions := Seq(scala212Version, scala213Version),
   libraryDependencies += scalaTestArtifact,
   organization := "com.krux"
 )

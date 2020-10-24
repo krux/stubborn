@@ -11,7 +11,7 @@ trait Retryable { policy: Policy =>
 
   def maxRetry: Int = Retryable.defaultMaxRetry
 
-  def shouldRetry(): PartialFunction[Throwable, Throwable] = Retryable.defaultShouldRetry()
+  def shouldRetry: PartialFunction[Throwable, Throwable] = Retryable.defaultShouldRetry
 
   implicit class RetryableImpl[A](action: => A) {
 
@@ -23,7 +23,7 @@ trait Retryable { policy: Policy =>
 
 object Retryable extends RetryDefaults {
 
-  def defaultShouldRetry(): PartialFunction[Throwable, Throwable] = {
+  def defaultShouldRetry: PartialFunction[Throwable, Throwable] = {
     case e: RuntimeException => e
   }
 

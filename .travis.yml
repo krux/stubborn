@@ -8,16 +8,12 @@ cache:
 
 language: scala
 
-matrix:
-  include:
-    - scala: 2.12.11
-      jdk: openjdk8
-    - scala: 2.11.12
-      jdk: openjdk8
+scala:
+    - 2.12.12
 
 sbt_args: "-no-colors -J-Xss2m"
 
-script: sbt 'set scalaVersion := System.getenv("TRAVIS_SCALA_VERSION")' -Dsbt.log.noformat=true +test
+script: sbt -Dsbt.log.noformat=true +test
 
 notifications:
   email:
@@ -33,8 +29,7 @@ before_install:
 after_success:
 - |
   if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_PULL_REQUEST}" = "false" ]]; then
-    sbt 'set scalaVersion := System.getenv("TRAVIS_SCALA_VERSION")' \
-        'set pgpPassphrase := Some(System.getenv("PGP_PASSPHRASE").toCharArray)' \
+    sbt 'set pgpPassphrase := Some(System.getenv("PGP_PASSPHRASE").toCharArray)' \
         'set credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", System.getenv("SONATYPE_USERNAME"), System.getenv("SONATYPE_PASSWORD"))' \
         +publishSigned sonatypeReleaseAll
 

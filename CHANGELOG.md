@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 2.0.0 - 2020-10-23
+### Chagned
+- Deprecate scala 2.10 and 2.11 supoort, add 2.13 support
+
 ## 1.4.1 - 2019-09-09
 ### Changed
 - Update build to use sbt 1.13 and Scala 2.12.9
