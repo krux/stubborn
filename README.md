@@ -1,7 +1,9 @@
-# Stubborn
+# NOTE
 
-[![Build Status](https://travis-ci.org/krux/stubborn.svg?branch=master)](http://travis-ci.org/krux/stubborn)
-[![Stories in Ready](https://badge.waffle.io/krux/stubborn.png?label=ready&title=Ready)](https://waffle.io/krux/stubborn)
+Note that stubborn in this repo is no longer receiving updates. All new pull
+requests should be made to https://github.com/salesforce/stubborn
+
+# Stubborn
 
 > Stubborn: having or showing dogged determination not to change one's attitude
 > or position on something.
